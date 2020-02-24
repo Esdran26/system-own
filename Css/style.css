@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxygen', sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+}
+.divForm {
+    display: grid;
+    align-self: center;
+    justify-content: center;
+}
+.divForm h1 {
+    margin: 8px 0;
+    text-align: center;
+}
+.textForm {
+    margin-top: 1rem;
+}
+input {
+    font-size: .9rem;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    transition: all .5s ease-in-out;
+    outline: none;
+}
+
+.inputPassword {
+    position: relative;
+}
+.fa-eye-slash{
+    position: absolute;
+    cursor: pointer;
+    top: 44px;
+    right: 12px;
+    color: #555;
+}
+.fa-eye {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 44px;
+    right: 13px;
+    color: #555;
+}
+input[type="text"], input[type="email"]:focus, input[type="password"]:focus  {
+    border: 3px solid #555;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 1rem;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    border: 3px solid #555;
+    background-color: #555;
+    color: white;
+}
+a[class="linkRegister"] {
+    color: rgba(9, 132, 227,1.0);
+}
+.textForm {
+    max-width: 400px;
+}
+.divBackground {
+    background-image: url(../Img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 950px) {
+    .divBackground {
+        display: none;
+    }
+    .container {
+        grid-template-columns: .5fr 3fr .5fr;
+    }
+    .divForm {
+        grid-column: 2 / 3;
+    }
+}
+@media (max-width: 530px) {
+    .container {
+        grid-template-columns: .1fr 1fr .1fr;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
+}

@@ -17,6 +17,9 @@
 .divForm h1 {
     margin: 8px 0;
     text-align: center;
+    font-family: 'Pacifico';
+    letter-spacing: 3px;
+    word-spacing: 5px;
 }
 .textForm {
     margin-top: 1rem;
@@ -33,7 +36,12 @@ input[type="text"], input[type="email"], input[type="password"] {
     transition: all .5s ease-in-out;
     outline: none;
 }
-
+.messageError {
+    background-color: #f2dede;
+    padding: 12px 20px;
+    color: #d63031;
+    border-radius: .3rem;
+}
 .inputPassword {
     position: relative;
 }

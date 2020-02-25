@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/de6467cf36.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Css/style.css">
-    <title>Inicia Sesión</title>
+    <title>Iniciar Sesión</title>
 </head>
 <body>
     <div class="container">
@@ -15,10 +16,14 @@
 
         </div>
         <div class="divForm">
-            <h1>Iniciar Sesión</h1>
+            <h1>INICIAR SESIÓN</h1>
             <hr>
             <div class="textForm">
-                <form method="POST" action="">
+                <div class="messageErrorDiv">
+                    <!--<p class="messageError">Error, ese nombre de usuario no existe</p><br>-->
+                    
+                </div>
+                <form method="POST" action="index.php">
                     <label id="labelUser" for="inputUser">Nombre de Usuario: </label>
                     <input type="text" name="usUser" id="inputUser" autofocus placeholder="Ej: Esdran26" autocomplete="off">
                     <br>

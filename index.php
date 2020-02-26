@@ -1,3 +1,27 @@
+<?php 
+if($_POST) {
+    function selectUser() {
+        include_once 'Config/connection.php';
+    
+        $sqlSelectUser = 'SELECT us_name FROM users';
+        $sentenceSelectUser = $pdo->prepare($sqlSelectUser);
+        $sentenceSelectUser->execute();
+        $resultSelectUser = $sentenceSelectUser->fetchAll();
+    
+        //La variable por defecto va a ser negativa
+        $messageError = '<p class="messageError">Error, ese nombre de usuario no existe</p><br>';
+    
+        //Si encuentra algún caso, quitará lo negativo
+        foreach ($resultSelectUser as $result) {
+            if($_POST['usUser'] === $result['us_name']) {
+                $messageError = '<p style="display: none">Correcto</p>';
+            }
+        }
+        return $messageError;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,31 +44,7 @@
             <hr>
             <div class="textForm">
                 <div class="messageErrorDiv">
-                    <!--<p class="messageError">Error, ese nombre de usuario no existe</p><br>-->
-                    <?php 
-                        if($_POST) {
-                            function selectUser() {
-                                include_once 'Config/connection.php';
-                            
-                                $sqlSelectUser = 'SELECT us_name FROM users';
-                                $sentenceSelectUser = $pdo->prepare($sqlSelectUser);
-                                $sentenceSelectUser->execute();
-                                $resultSelectUser = $sentenceSelectUser->fetchAll();
-                            
-                                //La variable por defecto va a ser negativa
-                                $messageError = '<p class="messageError">Error, ese nombre de usuario no existe</p>';
-                            
-                                //Si encuentra algún caso, quitará lo negativo
-                                foreach ($resultSelectUser as $result) {
-                                    if($_POST['usUser'] === $result['us_name']) {
-                                        $messageError = '<p style="display: none">Correcto</p>';
-                                    }
-                                }
-                                return $messageError;
-                            }
-                            echo selectUser();
-                        }
-                    ?>
+                    <?php if($_POST) {echo selectUser();} ?>
                 </div>
                 <form method="POST" action="index.php">
                     <label id="labelUser" for="inputUser">Nombre de Usuario: </label>

@@ -1,4 +1,3 @@
-
 /* Seleccionar los dos íconos que al dar click en alguno de ellos muestre el otro, creando una función que muestre 
 en los campos de tipo contraseña a tipo text y viceversa */
 
@@ -19,4 +18,14 @@ eye.addEventListener('click', () => {
 
     inputPassword.type = 'password';
     inputVerifyPassword.type = 'password';
+});
+
+/* Función para que se quite el mensaje de error en 2 segundos en JavaScript */
+
+const messageError = document.querySelector('.messageError');
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        messageError.remove();
+    }, 2500);
 });

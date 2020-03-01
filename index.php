@@ -3,21 +3,47 @@ if($_POST) {
     function selectUser() {
         include_once 'Config/connection.php';
     
-        $sqlSelectUser = 'SELECT us_name FROM users';
+        $enteredUser = $_POST['usUser'];
+        $enteredPassword = $_POST['usPassword'];
+
+        $sqlSelectUser = 'SELECT us_name, us_password FROM users';
         $sentenceSelectUser = $pdo->prepare($sqlSelectUser);
         $sentenceSelectUser->execute();
         $resultSelectUser = $sentenceSelectUser->fetchAll();
     
         //La variable por defecto va a ser negativa
-        $messageError = '<p class="messageError">Error, ese nombre de usuario no existe</p><br>';
+        $messageError = '<p class="messageError">Error, usuario y/o contraseña son incorrectos</p><br>';
     
+        initSession($resultSelectUser, $enteredUser, $enteredPassword);
+        
+        return $messageError;
+    }
+
+    function initSession($resultSelectUser, $enteredUser, $enteredPassword) {
         //Si encuentra algún caso, quitará lo negativo
         foreach ($resultSelectUser as $result) {
-            if($_POST['usUser'] === $result['us_name']) {
-                $messageError = '<p style="display: none">Correcto</p>';
+            if($enteredUser === $result['us_name']) {
+                if(password_verify($enteredPassword, $result['us_password'])) {
+                    session_start();
+                    $loginUser = $result['us_name'];
+
+                    //Redireccionar si la sesión es de un administrador
+                    if($loginUser == 'Andres') {
+                        $_SESSION['admin'] = $loginUser;
+                        if(isset($_SESSION['admin'])) {
+                            header('location:AdminUI/adminUI.php');
+                        }
+                    }
+                    //Redireccionar si la sesión es de un usuario normal
+                    else {
+                        $_SESSION['normal'] = $loginUser;
+                        if(isset($_SESSION['normal'])) {
+                            header('location:NormalUI/normalUI.php');
+                        }
+                    }
+                }
             }
         }
-        return $messageError;
     }
 }
 ?>

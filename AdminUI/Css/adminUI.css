@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+h1, h2, h3, h4 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p, input, textarea, a, li, ol {
+    font-family: 'Roboto', sans-serif;
+}
+  
+#sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: #34495e;
+    transition: all 500ms linear;
+}
+  
+#sidebar ul li{
+    list-style: none;
+    padding: 15px 10px;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#sidebar ul li a {
+    color: rgba(230, 230, 230, .9);
+    text-decoration: none;
+}
+  
+.logo {
+    color: rgba(230, 230, 230, .9);
+    display: block;
+    margin: 2rem auto 1rem auto;
+}

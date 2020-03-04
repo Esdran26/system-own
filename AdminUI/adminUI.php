@@ -22,7 +22,7 @@ if(isset($_SESSION['admin'])) { ?>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Llamar a caja</a></li>
                 <li><a href="#">Registrar</a></li>
-                <li><a href="#">Modificar o eliminar</a></li>
+                <li><a href="#">Productos agotados</a></li>
             </ul>
         </div>
     </body>

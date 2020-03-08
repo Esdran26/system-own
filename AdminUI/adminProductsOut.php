@@ -19,16 +19,13 @@ if(isset($_SESSION['admin'])) { ?>
                 <i class="far fa-user-circle fa-4x logo"></i>
                 </li>
                 <li><a href="#">Bienvenido <?php echo $_SESSION['admin'] ?></a></li>
-                <li><a class="active" href="adminUI.php">Inicio</a></li>
+                <li><a href="adminUI.php">Inicio</a></li>
                 <li><a href="adminBox.php">Llamar a Caja</a></li>
                 <li><a href="adminRegister.php">Registrar</a></li>
-                <li><a href="adminProductsOut.php">Productos Agotados</a></li>
+                <li><a class="active" href="adminProductsOut.php">Productos Agotados</a></li>
                 <li><a href="../logout.php">Cerrar Sesión</a></li>
             </ul>
         </div>
-
-        
-
     </body>
     </html>
 <?php

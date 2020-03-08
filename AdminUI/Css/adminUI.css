@@ -1,38 +1,72 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Nunito', sans-serif;
 }
-h1, h2, h3, h4 {
-    font-family: 'Open Sans', sans-serif;
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
 }
-
-p, input, textarea, a, li, ol {
-    font-family: 'Roboto', sans-serif;
-}
-  
 #sidebar {
+    grid-column: 1 / 2;
     position: fixed;
     width: 300px;
     height: 100%;
-    background: #34495e;
+    background: #2d3436;
     transition: all 500ms linear;
 }
-  
 #sidebar ul li{
     list-style: none;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
     text-align: center;
     font-size: 1.5rem;
 }
-
 #sidebar ul li a {
     color: rgba(230, 230, 230, .9);
     text-decoration: none;
     padding: 10px 10px;
+    transition: all .5s ease-in-out;
 }
-  
+#sidebar ul li a[class="active"] {
+    color: #d63031;
+}
 .logo {
     color: rgba(230, 230, 230, .9);
     display: block;
     margin: 2rem auto 1rem auto;
+}
+.showAllProducts {
+    grid-column: 2 / 3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+input {
+    font-size: .9rem;
+}
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    transition: all .5s ease-in-out;
+    outline: none;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+    border: 3px solid #555;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 1rem;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    border: 3px solid #555;
+    background-color: #555;
+    color: white;
 }

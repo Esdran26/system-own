@@ -47,7 +47,7 @@ input {
 }
 input[type="text"], input[type="number"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid #ccc;
@@ -55,18 +55,24 @@ input[type="text"], input[type="number"] {
     outline: none;
 }
 input[type="text"]:focus, input[type="number"]:focus {
-    border: 3px solid #555;
+    border: 3px solid #2d3436;
 }
 input[type="submit"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin-top: 1rem;
     border: 3px solid #ccc;
     cursor: pointer;
     transition: all .5s ease-in-out;
 }
 input[type="submit"]:hover {
-    border: 3px solid #555;
-    background-color: #555;
+    border: 3px solid #2d3436;
+    background-color: #2d3436;
     color: white;
+}
+.messageError {
+    background-color: #f8d7da;
+    padding: 12px 20px;
+    color: #a8686d;
+    border-radius: .3rem;
 }
